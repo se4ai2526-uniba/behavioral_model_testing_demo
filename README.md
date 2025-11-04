@@ -32,6 +32,14 @@ This project uses [uv](https://github.com/astral-sh/uv) for dependency managemen
     uv sync
     ```
 
+## VSCode Setup
+
+After running `uv sync`, the VSCode pytest extension should automatically detect the tests. If it doesn't:
+
+1. Reload VSCode window (Cmd+Shift+P -> "Developer: Reload Window")
+2. Make sure the Python interpreter is set to `.venv/bin/python`
+3. The `.vscode/settings.json` file configures pytest for this project
+
 ## Usage
 
 Run the tests using uv:
