@@ -2,7 +2,8 @@
 # Changes to the model inputs should affect the model outputs in a predictable way
 
 import pytest
-from main import Sentiment
+
+from src.main import Sentiment
 
 
 @pytest.fixture

@@ -2,7 +2,8 @@
 # Changes to the model inputs should not affect the model outputs
 
 import pytest
-from main import Sentiment
+
+from src.main import Sentiment
 
 
 @pytest.fixture
@@ -38,12 +39,15 @@ def test_invariance_positive_with_typos_and_casing(sentiment, token, typo_text):
     assert result[0]["score"] > 0.5
 
 
-@pytest.mark.parametrize("token", ["service", "solution", "product", "support", "assistance", "experience"])
+@pytest.mark.parametrize(
+    "token", ["service", "solution", "product", "support", "assistance", "experience"]
+)
 def test_invariance_negative(sentiment, token):
     text = f"I hate this {token}. It is terrible."
     result = sentiment.predict(text)
     assert result[0]["label"] == "NEGATIVE"
     assert result[0]["score"] > 0.5
+
 
 @pytest.mark.parametrize(
     "token", ["service", "solution", "product", "support", "assistance", "experience"]

@@ -4,7 +4,9 @@ from transformers import pipeline
 class Sentiment:
     """Encapsulates a Hugging Face sentiment analysis pipeline."""
 
-    def __init__(self, model_name: str = "cardiffnlp/twitter-roberta-base-sentiment") -> None:
+    def __init__(
+        self, model_name: str = "cardiffnlp/twitter-roberta-base-sentiment"
+    ) -> None:
         self.classifier = pipeline("sentiment-analysis", model=model_name)
 
     def predict(self, texts):
@@ -30,21 +32,22 @@ class Sentiment:
             # Normalize label if it's in LABEL_*/known mapping; otherwise keep as-is
             normalized_label = label_mapping.get(label, label)
 
-            normalized.append({
-                "label": normalized_label,
-                "score": score,
-            })
+            normalized.append(
+                {
+                    "label": normalized_label,
+                    "score": score,
+                }
+            )
 
         return normalized
 
 
 def main():
-
     # Analyze sentiment
     texts = [
         "I love this course!",
         "This assignment is frustrating.",
-        "The lecture was informative and well-structured."
+        "The lecture was informative and well-structured.",
     ]
 
     sentiment = Sentiment()

@@ -1,7 +1,7 @@
 [project]
 name = "behavioral-model-testing-with-hf"
 version = "0.1.0"
-description = "Add your description here"
+description = "Behavioral testing for sentiment analysis models using Hugging Face"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -13,4 +13,13 @@ dependencies = [
 dev = [
     "pytest>=8.4.2",
     "ruff>=0.14.3",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "utility: marks tests for utility functions (deselect with '-m \"not utility\"')",
 ]

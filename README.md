@@ -4,17 +4,34 @@ This repository contains a demo of behavioral testing techniques for AI models, 
 
 Specifically, the demo showcases behavioral model testing applied to a sentiment analysis model from Hugging Face. In particular, the repository includes examples of three types of behavioral tests:
 
-### 1. Invariance Tests (`test_invariance.py`)
+### 1. Invariance Tests (`tests/test_invariance.py`)
 
 Tests that verify the model's predictions remain consistent when inputs undergo transformations that should not change the sentiment (e.g., typos, punctuation changes).
 
-### 2. Directional Tests (`test_directional.py`)
+### 2. Directional Tests (`tests/test_directional.py`)
 
 Tests that verify the model's predictions change in expected directions when inputs are modified in specific ways (e.g., adding positive/negative words should shift sentiment accordingly).
 
-### 3. Minimum Functionality Tests (`test_minimum_functionality.py`)
+### 3. Minimum Functionality Tests (`tests/test_minimum_functionality.py`)
 
 Tests that verify the model can handle simple, basic cases correctly (e.g., obvious positive/negative sentences).
+
+## Project Structure
+
+```txt
+├── src/                                # Source code package
+│   ├── __init__.py                     # Package initialization
+│   ├── main.py                         # Main sentiment analysis model
+│   └── utilities.py                    # Utility functions (e.g., text preprocessing)
+├── tests/                              # Test package
+│   ├── __init__.py                     # Test package initialization
+│   ├── test_directional.py             # Directional behavioral tests
+│   ├── test_invariance.py              # Invariance behavioral tests
+│   ├── test_minimum_functionality.py   # Minimum functionality tests
+│   └── test_utilities.py               # Standard tests for utility functions
+├── pyproject.toml                      # Project configuration and dependencies
+└── README.md                           # This file
+```
 
 ## Setup
 
@@ -42,16 +59,27 @@ After running `uv sync`, the VSCode pytest extension should automatically detect
 
 ## Usage
 
-Run the tests using uv:
+### Running Tests
 
-```bash
-uv run pytest test_invariance.py
-uv run pytest test_directional.py
-uv run pytest test_minimum_functionality.py
-```
-
-Or run all tests at once:
+Run all tests using uv:
 
 ```bash
 uv run pytest
+```
+
+Or run specific test files:
+
+```bash
+uv run pytest tests/test_invariance.py
+uv run pytest tests/test_directional.py
+uv run pytest tests/test_minimum_functionality.py
+uv run pytest tests/test_utilities.py
+```
+
+### Running the Main Script
+
+Execute the sentiment analysis demo:
+
+```bash
+uv run python -m src.main
 ```

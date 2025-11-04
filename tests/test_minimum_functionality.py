@@ -2,7 +2,8 @@
 # Simple combinations of inputs and expected outputs
 
 import pytest
-from main import Sentiment
+
+from src.main import Sentiment
 
 
 @pytest.fixture
@@ -42,4 +43,3 @@ def test_minimum_functionality_sentences(sentiment, text, expected):
     result = sentiment.predict(text)
     assert result[0]["label"] == expected
     assert result[0]["score"] > 0.5
-
