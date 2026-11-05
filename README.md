@@ -2,7 +2,9 @@
 
 This repository contains a demo of behavioral testing techniques for AI models, developed for the **Software Engineering for AI-enabled Systems** course (MSc in Computer Science, University of Bari).
 
-Specifically, the demo showcases behavioral model testing applied to a sentiment analysis model from Hugging Face. In particular, the repository includes examples of three types of behavioral tests:
+The demo showcases behavioral model testing applied to a sentiment analysis model from Hugging Face. The repository includes examples of three types of behavioral tests.
+
+## Test Types
 
 ### 1. Invariance Tests (`tests/test_invariance.py`)
 
@@ -19,12 +21,15 @@ Tests that verify the model can handle simple, basic cases correctly (e.g., obvi
 ## Project Structure
 
 ```txt
+├── .vscode/
+│   └── settings.json                   # VS Code pytest configuration
 ├── src/                                # Source code package
 │   ├── __init__.py                     # Package initialization
 │   ├── main.py                         # Main sentiment analysis model
 │   └── utilities.py                    # Utility functions (e.g., text preprocessing)
 ├── tests/                              # Test package
 │   ├── __init__.py                     # Test package initialization
+│   ├── conftest.py                     # Shared pytest fixtures (model loaded once per session)
 │   ├── test_directional.py             # Directional behavioral tests
 │   ├── test_invariance.py              # Invariance behavioral tests
 │   ├── test_minimum_functionality.py   # Minimum functionality tests
@@ -35,7 +40,7 @@ Tests that verify the model can handle simple, basic cases correctly (e.g., obvi
 
 ## Setup
 
-This project uses [uv](https://github.com/astral-sh/uv) for dependency management.
+This project uses [uv](https://github.com/astral-sh/uv) for dependency management and requires Python 3.13+ (uv installs it automatically if missing).
 
 1. Install uv if you haven't already:
 
@@ -49,11 +54,11 @@ This project uses [uv](https://github.com/astral-sh/uv) for dependency managemen
     uv sync
     ```
 
-## VSCode Setup
+## VS Code Setup
 
-After running `uv sync`, the VSCode pytest extension should automatically detect the tests. If it doesn't:
+After running `uv sync`, the VS Code Python extension should automatically detect the tests. If it doesn't:
 
-1. Reload VSCode window (Cmd+Shift+P -> "Developer: Reload Window")
+1. Reload the VS Code window (Cmd/Ctrl+Shift+P → "Developer: Reload Window")
 2. Make sure the Python interpreter is set to `.venv/bin/python`
 3. The `.vscode/settings.json` file configures pytest for this project
 

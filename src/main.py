@@ -7,7 +7,7 @@ class Sentiment:
     def __init__(
         self, model_name: str = "cardiffnlp/twitter-roberta-base-sentiment"
     ) -> None:
-        self.classifier = pipeline("sentiment-analysis", model=model_name)
+        self.classifier = pipeline("text-classification", model=model_name)
 
     def predict(self, texts):
         """Return sentiment predictions for a string or list of strings."""
@@ -29,7 +29,7 @@ class Sentiment:
             label = item.get("label", "")
             score = item.get("score", 0.0)
 
-            # Normalize label if it's in LABEL_*/known mapping; otherwise keep as-is
+            # Normalize the label if it's in the known LABEL_* mapping; otherwise keep it as-is
             normalized_label = label_mapping.get(label, label)
 
             normalized.append(

@@ -3,13 +3,6 @@
 
 import pytest
 
-from src.main import Sentiment
-
-
-@pytest.fixture
-def sentiment():
-    return Sentiment()
-
 
 @pytest.mark.parametrize(
     "token", ["service", "solution", "product", "support", "assistance", "experience"]

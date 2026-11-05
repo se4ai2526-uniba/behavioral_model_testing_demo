@@ -1,14 +1,7 @@
 # DIRECTIONAL TESTING
-# Changes to the model inputs should affect the model outputs in a predictable way
+# Changes to the model inputs should affect the model outputs in a predictable way.
 
 import pytest
-
-from src.main import Sentiment
-
-
-@pytest.fixture
-def sentiment():
-    return Sentiment()
 
 
 @pytest.mark.parametrize(
@@ -28,7 +21,7 @@ def test_directional_verbs_shift_label(sentiment, verb, expected):
 
 
 def test_directional_intensifiers_positive_monotonicity(sentiment):
-    # Stronger positive wording should increase positive confidence
+    # Stronger positive wording should increase positive confidence.
     texts = [
         "The service is OK.",
         "The service is good.",
@@ -57,7 +50,7 @@ def test_directional_negation_flips_polarity(sentiment):
 
 @pytest.mark.skip(reason="Test intentionally skipped.")
 def test_directional_contrast_clause_shifts_negative(sentiment):
-    # Adding a strong negative clause should shift overall sentiment negative
+    # Adding a strong negative clause should shift the overall sentiment to negative.
     base = sentiment.predict("The battery life is great.")[0]
     contrasted = sentiment.predict(
         "The battery life is great, but the price is outrageous."

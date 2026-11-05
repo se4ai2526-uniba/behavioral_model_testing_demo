@@ -18,11 +18,11 @@ def remove_emojis(text: str) -> str:
     - Transport & Map Symbols (Unicode range U+1F680 to U+1F6FF)
     - Flags (Unicode range U+1F1E0 to U+1F1FF)
     - Supplemental Symbols and Pictographs (Unicode range U+1F900 to U+1F9FF)
-    - Miscellaneous Symbols and Pictographs (Unicode range U+2600 to U+26FF)
+    - Miscellaneous Symbols (Unicode range U+2600 to U+26FF)
     - Dingbats (Unicode range U+2700 to U+27BF)
     - Enclosed Alphanumeric Supplement (Unicode range U+1F0A0 to U+1F0FF)
     - Enclosed Ideographic Supplement (Unicode range U+1F200 to U+1F2FF)
-    - Miscellaneous Symbols (Unicode range U+2300 to U+23FF)
+    - Miscellaneous Technical (Unicode range U+2300 to U+23FF)
     - Geometric Shapes (Unicode range U+25A0 to U+25FF)
     - Variation Selectors (Unicode range U+FE00 to U+FE0F)
     - Zero Width Joiner (U+200D)
@@ -54,7 +54,7 @@ def remove_emojis(text: str) -> str:
         "\U0001f1e0-\U0001f1ff"  # flags (iOS)
         "\U0001f900-\U0001f9ff"  # supplemental symbols and pictographs
         "\U0001fa00-\U0001fa6f"  # chess symbols
-        "\U0001fa70-\U0001faff"  # symbols and pictographs extended-a
+        "\U0001fa70-\U0001faff"  # symbols and pictographs Extended-A
         "\U00002702-\U000027b0"  # dingbats
         "\U0001f0a0-\U0001f0ff"  # enclosed alphanumeric supplement
         "\U00002300-\U000023ff"  # miscellaneous technical
@@ -85,7 +85,7 @@ def remove_emojis(text: str) -> str:
         "\U00002611"  # ballot box with check
         "\U00002614-\U00002615"  # umbrella, hot beverage
         "\U00002618"  # shamrock
-        "\U0000261d"  # white up pointing index
+        "\U0000261d"  # white up-pointing index
         "\U00002620"  # skull and crossbones
         "\U00002622-\U00002623"  # radioactive, biohazard
         "\U00002626"  # orthodox cross
@@ -95,9 +95,9 @@ def remove_emojis(text: str) -> str:
         "\U00002640"  # female sign
         "\U00002642"  # male sign
         "\U00002648-\U00002653"  # zodiac signs
-        "\U0000265f-\U00002660"  # chess pieces
+        "\U0000265f-\U00002660"  # black chess pawn, spade suit
         "\U00002663"  # club suit
-        "\U00002665-\U00002666"  # heart and diamond suit
+        "\U00002665-\U00002666"  # heart and diamond suits
         "\U00002668"  # hot springs
         "\U0000267b"  # recycling symbol
         "\U0000267e-\U0000267f"  # infinity, wheelchair

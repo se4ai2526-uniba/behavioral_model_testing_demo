@@ -3,16 +3,16 @@ name = "behavioral-model-testing-with-hf"
 version = "0.1.0"
 description = "Behavioral testing for sentiment analysis models using Hugging Face"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
-    "torch>=2.9.0",
-    "transformers>=4.57.1",
+    "torch>=2.15.0",
+    "transformers>=5.22.1",
 ]
 
 [dependency-groups]
 dev = [
-    "pytest>=8.4.2",
-    "ruff>=0.14.3",
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
 ]
 
 [tool.pytest.ini_options]
